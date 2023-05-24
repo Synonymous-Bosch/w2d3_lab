@@ -33,8 +33,8 @@ class Pub:
             print("No booze for you")
 
     def find_drink_by_name(self, drink_name):
-        # pdb.set_trace()
-        for drink in self.drinks:
+        drinks_list = list(self.drinks)
+        for drink in drinks_list:
             if drink_name == drink.name:
                 return drink
             
@@ -56,3 +56,9 @@ class Pub:
         customer.decrease_wallet(price)
         self.increase_till(price)
         customer.drunkenness -= food.rejuvenation_level
+
+    def stock_value(self, drinks):
+        total_value = 0
+        for drink in drinks.items():
+            total_value += drink[0].price * drink[1]
+        return total_value

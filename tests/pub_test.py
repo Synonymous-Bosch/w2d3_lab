@@ -10,8 +10,9 @@ class TestPub(unittest.TestCase):
         self.customer1 = Customer("Leonardo", 30, 19, 1)
         self.customer2 = Customer("Donatello", 80, 17, 1)
         self.customer3 = Customer("Michaelangelo", 20, 18, 5)
-        self.drink = Drink("pint", 1.00, 1)
-        drinks = [self.drink]
+        self.drink1 = Drink("pint", 1.00, 1)
+        self.drink2 = Drink("red wine", 3.00, 1)
+        drinks = {self.drink1: 50, self.drink2: 20}
         self.food = Food("pizza", 5.00, 1)
         foods = [self.food]
         self.pub = Pub("The Prancing Pony", 100.00, drinks, foods)
@@ -76,3 +77,7 @@ class TestPub(unittest.TestCase):
         self.assertEqual(15.00, self.customer3.wallet)
         self.assertEqual(105.00, self.pub.till)
         self.assertEqual(4, self.customer3.drunkenness)
+
+    def test_stock_value(self):
+        result = self.pub.stock_value(self.pub.drinks)
+        self.assertEqual(110.00, result)

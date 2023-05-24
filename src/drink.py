@@ -4,5 +4,3 @@ class Drink:
         self.price = price
         self.alcohol_level = alcohol_level
 
-    def get_drink_price(drink):
-        return drink.price
