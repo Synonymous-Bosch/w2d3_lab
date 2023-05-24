@@ -35,6 +35,7 @@ class TestPub(unittest.TestCase):
         self.assertEqual(29.00, self.customer1.wallet)
         self.assertEqual(101.00, self.pub.till)
         self.assertEqual(2, self.customer1.drunkenness)
+        self.assertEqual(51, self.pub.drinks[drink])
 
     def test_find_drink_by_name(self):
         drink = self.pub.find_drink_by_name("pint")
@@ -53,6 +54,7 @@ class TestPub(unittest.TestCase):
         self.pub.buy_drink(self.customer2, drink)
         self.assertEqual(80.00, self.customer2.wallet)
         self.assertEqual(100.00, self.pub.till)
+        self.assertEqual(50, self.pub.drinks[drink])
 
     def test_check_drunkenness_false(self):
         result = self.pub.check_drunkenness(self.customer3)
@@ -67,6 +69,7 @@ class TestPub(unittest.TestCase):
         self.pub.buy_drink(self.customer3, drink)
         self.assertEqual(20.00, self.customer3.wallet)
         self.assertEqual(100.00, self.pub.till)
+        self.assertEqual(50, self.pub.drinks[drink])
 
     def test_find_food_by_name(self):
         food = self.pub.find_food_by_name("pizza")

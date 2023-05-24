@@ -29,6 +29,7 @@ class Pub:
             customer.decrease_wallet(price)
             self.increase_till(price)
             customer.drunkenness += drink.alcohol_level
+            self.drinks[drink] += 1
         else:
             print("No booze for you")
 
